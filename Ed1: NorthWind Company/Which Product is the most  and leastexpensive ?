@@ -16,9 +16,7 @@ CALCULATE(VALUES(Products[ProductName]), Products[UnitPrice] = MIN(Products[Unit
 // - TOPN(1, Products, Products[UnitPrice], ASC): Returns the top 1 row from the Products table, sorted in ascending order based on UnitPrice.
 
 // Day 2 : Most expensive product = 
-// var Most = Max(Products[UnitPrice])
-// return 
-// MAXX(FILTER(Products,Products[UnitPrice]=Most),Products[ProductName])
+CALCULATE(VALUES(Products[ProductName]), Products[UnitPrice] = Max(Products[UnitPrice]))
 
 
 
