@@ -1,23 +1,19 @@
 """ Which Product is the Most and Least expensive ? """
 
 """ Least Expensive Product : """
-// Calculate the least expensive product using the MIN function
-var least = MIN(Products[UnitPrice])
+CALCULATE(VALUES(Products[ProductName]), Products[UnitPrice] = MIN(Products[UnitPrice]))
+// Explanation:
+// - CALCULATE: Modifies the filter context for the evaluation of the expression.
+// - VALUES(Products[ProductName]): Returns a single value if there's only one distinct value in the specified column in the current context.
+// - Products[UnitPrice] = MIN(Products[UnitPrice]): Filters the context to include only rows where the UnitPrice is equal to the minimum UnitPrice in the entire Products table.
 
-// Return the product name with the least price using MINX and FILTER
-return MINX(FILTER(Products, Products[UnitPrice] = least), Products[ProductName])
+
 
 // Method 2: Least = CALCULATE(SELECTEDVALUE(Products[ProductName]), TOPN(1, Products, Products[UnitPrice], ASC))
 // Explanation:
 // - CALCULATE: Modifies the filter context for the evaluation of the expression.
 // - SELECTEDVALUE(Products[ProductName]): Retrieves the value of the ProductName column in the current context.
 // - TOPN(1, Products, Products[UnitPrice], ASC): Returns the top 1 row from the Products table, sorted in ascending order based on UnitPrice.
-
-// Method 3: Least = CALCULATE(VALUES(Products[ProductName]), Products[UnitPrice] = MIN(Products[UnitPrice]))
-// Explanation:
-// - CALCULATE: Modifies the filter context for the evaluation of the expression.
-// - VALUES(Products[ProductName]): Returns a single value if there's only one distinct value in the specified column in the current context.
-// - Products[UnitPrice] = MIN(Products[UnitPrice]): Filters the context to include only rows where the UnitPrice is equal to the minimum UnitPrice in the entire Products table.
 
 // Day 2 : Most expensive product = 
 // var Most = Max(Products[UnitPrice])
