@@ -1,1 +1,19 @@
+""" Objective:  How many current Products cost less than $20? """
 
+// Define a variable to store the count of products meeting the specified conditions.
+var ProductsCountLessThan20 = 
+    CALCULATE(
+        // Use the COUNTA function to count non-blank values in the 'ProductName' column.
+        COUNTA(Products[ProductName]),
+        // Use the FILTER function to apply conditions to the 'Products' table.
+        FILTER(
+            Products,
+            // Condition 1: Unit price should be less than $20.
+            Products[UnitPrice] < 20 &&
+            // Condition 2: Products should not be discontinued.
+            Products[Discontinued] = FALSE()
+        )
+    )
+
+// Return the calculated count of products meeting the criteria.
+RETURN ProductsCountLessThan20
