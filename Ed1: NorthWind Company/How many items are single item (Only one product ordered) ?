@@ -1,0 +1,6 @@
+-- Day 8: Ordered single item
+-- Using SUMMARIZE to create a summary table with the count of unique products for each order
+VAR ORDER_COUNT = SUMMARIZE(Orders, Orders[OrderID], "product_count", COUNTA(Orders[ProductID]))
+
+-- Using COUNTROWS and FILTER to count the number of orders with a product count equal to 1
+RETURN COUNTROWS(FILTER(ORDER_COUNT, [product_count] = 1))
