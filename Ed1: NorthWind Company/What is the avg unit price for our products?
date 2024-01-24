@@ -1,0 +1,3 @@
+Day 3 : Average unit price of products = 
+
+AVERAGE(Products[UnitPrice])
