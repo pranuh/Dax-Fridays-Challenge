@@ -1,0 +1,12 @@
+Day 7: Order value of open orders (not Shipped) =
+-- Using CALCULATE to calculate the sum of UnitPrice multiplied by Quantity for open orders
+CALCULATE(
+    SUMX(
+        Orders,
+        Orders[UnitPrice] * Orders[Quantity]
+    ),
+    FILTER(
+        Orders,
+        Orders[ShippedDate] = BLANK()  -- Filtering orders where ShippedDate is blank (not shipped)
+    )
+)
