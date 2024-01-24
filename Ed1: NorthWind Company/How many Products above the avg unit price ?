@@ -1,0 +1,5 @@
+Day 4 : Products above the average unit price = 
+var avg_unitprice = AVERAGE(Products[UnitPrice])
+return
+
+CALCULATE(COUNTA(Products[ProductID]),FILTER(Products,Products[UnitPrice]>avg_unitprice))
