@@ -1,0 +1,9 @@
+-- Day 5: Product Cost between 15 and 25
+-- Using CALCULATE to count the number of products with a unit price between 15 and 25
+CALCULATE(
+    COUNTA(Products[ProductID]),  -- Counting the number of products (ProductID)
+    FILTER(
+        Products,
+        Products[Unit Price] >= 15 && Products[Unit Price] <= 25  -- Filtering products with a unit price between 15 and 25
+    )
+)
