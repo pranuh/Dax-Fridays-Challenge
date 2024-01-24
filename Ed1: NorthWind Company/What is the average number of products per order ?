@@ -1,0 +1,6 @@
+Day 6: Average Order Size =
+-- Using SUMMARIZE to create a summary table with the count of products for each order
+VAR summary_table = SUMMARIZE(Orders, Orders[OrderID], "Product_Count", COUNTA(Orders[ProductID]))
+
+-- Using AVERAGEX to calculate the average product count across all orders
+RETURN AVERAGEX(summary_table, [Product_Count])
