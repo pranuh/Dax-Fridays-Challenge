@@ -1,5 +1,12 @@
-Day 4 : Products above the average unit price = 
-var avg_unitprice = AVERAGE(Products[UnitPrice])
-return
+-- Day 4: Products above the average unit price
+-- Calculating the average unit price for all products
+VAR avg_unitprice = AVERAGE(Products[UnitPrice])
 
-CALCULATE(COUNTA(Products[ProductID]),FILTER(Products,Products[UnitPrice]>avg_unitprice))
+-- Using CALCULATE to count the number of products with a unit price above the average
+RETURN CALCULATE(
+    COUNTA(Products[ProductID]),  -- Counting the number of products (ProductID) 
+    FILTER(
+        Products,
+        Products[UnitPrice] > avg_unitprice  -- Filtering products with a unit price above the calculated average
+    )
+)
